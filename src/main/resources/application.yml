@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    url: jdbc:postgresql://localhost:15432/messages
+    username: postgres
+    password: test_password
+    driverClassName: org.postgresql.Driver
