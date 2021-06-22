@@ -1,9 +1,5 @@
 package adolin.jpa.samplejpa;
 
-import adolin.jpa.samplejpa.MyEntity;
-import adolin.jpa.samplejpa.MyRepository;
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,12 +18,8 @@ public class MyController {
     private MyRepository myRepository;
 
     @GetMapping("/all")
-    public List<MyEntity> getAll() {
-        final ArrayList<MyEntity> list = new ArrayList<>();
-        for (MyEntity entity : myRepository.findAll()) {
-            list.add(entity);
-        }
-        return list;
+    public Iterable<MyEntity> getAll() {
+        return myRepository.findAll();
     }
 
     @PostMapping("/add")
